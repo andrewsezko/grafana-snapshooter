@@ -16,13 +16,13 @@ RUN mkdir results && chmod 777 /app/results
 
 RUN  npm i puppeteer && groupadd -r pptruser && useradd -r -g pptruser -G audio,video pptruser \
     && mkdir -p /home/pptruser/Downloads \
-    && chown -R pptruser:pptruser /home/pptruser \
-    && chown -R pptruser:pptruser /app \
-    && chown -R pptruser:pptruser /app/results
+    && chown -R pptruser:pptruser /home/pptruser
+#    && chown -R pptruser:pptruser /app \
+#    && chown -R pptruser:pptruser /app/results
 
 COPY snapshot.js snapshot.js
 
-USER pptruser
+#USER pptruser
 
 
 
