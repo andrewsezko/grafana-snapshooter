@@ -1,16 +1,16 @@
 # grafana-snapshooter
 Tool for automated Grafana snapshot creation.
 
-##Description
+## Description
 Dockerized Node app uses headless Chrome with Google [Puppeteer Framework](https://github.com/puppeteer/puppeteer/blob/master/docs/api.md) to login via Grafana UI and create snapshot in a regular way.
 __NOTE__: That is temporary workaround as Grafana snapshot API still requires too much additional steps for datapoints retrieval (see Grafana blog [post](https://community.grafana.com/t/snapshot-api-how-to-get-the-data/2424/2))
-###Prerequisites 
+### Prerequisites 
 -Grafana v.5.1.3+
 -Grafana User with admin permissions for target dashboard
 -Docker
 -NodeJS 8.0+ (for local execution)
 
-##Usage
+## Usage
 After running a container you can find a json file in ./results folder with created snapshot details.
 __Example:__
  ```
@@ -27,10 +27,10 @@ Snapshotting is time consuming operation, choose appropriate time range and pane
 Snapshot creation may fail due to large chunk of data that you`re trying to save.
 To be sure about operation success you can try to snapshot your dashboard withing the same time range manually.  
 
-###Build image
+### Build image
 ```docker build -t puppeteer-chrome-grafana-snapshooter:latest .```
 
-###Run container
+### Run container
 ```
 docker run -it --rm --cap-add=SYS_ADMIN --name snapshooter \
     -v ./results:/app/results \
