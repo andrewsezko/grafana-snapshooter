@@ -12,7 +12,7 @@ RUN apt-get update && apt-get install -y wget --no-install-recommends \
     && rm -rf /src/*.deb
 
 WORKDIR app
-RUN mkdir results && chmod a+rw /app/results
+RUN mkdir results && chmod 777 /app/results
 
 RUN  npm i puppeteer && groupadd -r pptruser && useradd -r -g pptruser -G audio,video pptruser \
     && mkdir -p /home/pptruser/Downloads \
