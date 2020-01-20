@@ -22,7 +22,7 @@ const requestTimeoutInMillisecond = 150000
 const reportName = ( process.env.REPORT_NAME ? process.env.REPORT_NAME :'result') + '.json'
 
 //INIT BROWSER
-const browser = await puppeteer.launch();
+const browser = await puppeteer.launch({args: ['--no-sandbox', '--disable-setuid-sandbox']});
 //const browser = await puppeteer.launch({headless: false}); // For debug
 const page = await browser.newPage();
 await page.setDefaultNavigationTimeout(requestTimeoutInMillisecond);
